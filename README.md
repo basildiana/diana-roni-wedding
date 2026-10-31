@@ -6,8 +6,8 @@ It's plain HTML, CSS and JavaScript, so there's no build step. It runs as-is on 
 ```
 index.html            ← all page text (English + Hebrew)
 css/styles.css        ← colors, fonts, layout
-js/main.js            ← language switch, countdown, gallery viewer, snow
-assets/images/        ← hero.jpg + gallery-1…8.jpg (placeholders, swap for your own)
+js/main.js            ← language switch, countdown, snow
+assets/images/        ← hero.jpg (top photo) + gallery-1.jpg (Gallery section photo)
 ```
 
 ## Preview locally
@@ -48,11 +48,9 @@ Replace the files in `assets/images/` and **keep the same file names**:
 | File | Where it appears | Suggested size |
 |---|---|---|
 | `hero.jpg` | Arched photo at the top | ~1600px long side, portrait or square looks best |
-| `gallery-1.jpg` … `gallery-8.jpg` | Gallery grid | ~1600px long side |
+| `gallery-1.jpg` | The single photo in the Gallery section | ~1600–2000px wide |
 
 - Look for `📸 SWAP ME` comments in `index.html`.
-- **Add a photo:** put the file in `assets/images/`, then copy one `<li>…</li>` line inside `<ul class="gallery">` and change the `src`, `alt` and `data-caption`. Add `class="gallery__tall"` to the `<li>` for portrait photos so they span two rows. You can add a Hebrew caption with `data-caption-he="..."`.
-- **Remove a photo:** delete its `<li>` line.
 - Keep each photo under ~500 KB so it loads quickly on phones. <https://squoosh.app> is a free way to shrink them.
 - File names are case-sensitive on GitHub Pages: `Photo.JPG` ≠ `photo.jpg`.
 
@@ -66,6 +64,3 @@ Change `WEDDING_DATE` at the top of `js/main.js`. The countdown hides itself aft
 
 ### Colors & fonts
 Edit the variables at the top of `css/styles.css` (`--slate`, `--sky`, `--ice`, …).
-
-### Letting guests share photos
-GitHub Pages is static and can't accept uploads. Create a shared album (Google Photos, iCloud, etc.), then find the commented-out **"Add your photos"** button at the end of the gallery section in `index.html`, paste your album link in, and remove the `<!--` / `-->` around it.
