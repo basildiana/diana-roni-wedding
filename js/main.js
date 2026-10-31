@@ -112,14 +112,42 @@ function setLanguage(lang) {
   }
 
   function makeFlake(anywhere) {
+    // About 1 in 4 is a little six-armed snowflake; the rest are soft dots.
+    const crystal = Math.random() < 0.25;
     return {
       x: Math.random() * w,
       y: anywhere ? Math.random() * h : -10,
-      r: 1 + Math.random() * 2.4,
+      crystal,
+      r: crystal ? 6 + Math.random() * 6 : 1 + Math.random() * 2.4,
       speed: 0.25 + Math.random() * 0.6,
       drift: Math.random() * Math.PI * 2,
-      alpha: 0.35 + Math.random() * 0.45,
+      angle: Math.random() * Math.PI,
+      spin: (Math.random() - 0.5) * 0.01,
+      alpha: crystal ? 0.6 + Math.random() * 0.3 : 0.35 + Math.random() * 0.45,
     };
+  }
+
+  function drawCrystal(f) {
+    const arm = f.r, branch = f.r * 0.38;
+    ctx.save();
+    ctx.translate(f.x, f.y);
+    ctx.rotate(f.angle);
+    ctx.strokeStyle = `rgba(120, 160, 199, ${f.alpha})`;
+    ctx.lineWidth = Math.max(1.1, f.r / 7);
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, -arm);
+      // two small branches on each arm
+      ctx.moveTo(0, -arm * 0.55);
+      ctx.lineTo(-branch, -arm * 0.55 - branch);
+      ctx.moveTo(0, -arm * 0.55);
+      ctx.lineTo(branch, -arm * 0.55 - branch);
+      ctx.rotate(Math.PI / 3);
+    }
+    ctx.stroke();
+    ctx.restore();
   }
 
   function frame() {
@@ -129,7 +157,9 @@ function setLanguage(lang) {
       f.y += f.speed;
       f.drift += 0.01;
       f.x += Math.sin(f.drift) * 0.3;
+      f.angle += f.spin;
       if (f.y > h + 10) Object.assign(f, makeFlake(false));
+      if (f.crystal) { drawCrystal(f); continue; }
       ctx.beginPath();
       ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(143, 179, 212, ${f.alpha})`;
