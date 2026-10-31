@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--
+  Diana & Roni — Wedding Website
+  ------------------------------------------------------------------
+  HOW THE TWO LANGUAGES WORK
+  Every piece of text appears twice: once with data-lang="en" and once
+  with data-lang="he". Only the active language is shown (see css/styles.css).
+  To edit text, change BOTH versions. The EN / עב button switches language.
+  ------------------------------------------------------------------
+-->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diana & Roni · Georgia 2027</title>
+  <meta name="description" content="Diana & Roni are getting married in Tbilisi, Georgia. Schedule, travel tips and photos." />
+  <meta name="theme-color" content="#f4f8fb" />
+
+  <!-- Link previews (WhatsApp, etc.). After publishing, you can change the image
+       to an absolute URL, e.g. https://USERNAME.github.io/REPO/assets/images/hero.jpg -->
+  <meta property="og:title" content="Diana & Roni · Georgia 2027" />
+  <meta property="og:description" content="Join us in Georgia, March 17–24, 2027" />
+  <meta property="og:image" content="assets/images/hero.jpg" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄️</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&family=Frank+Ruhl+Libre:wght@400;500&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">
+    <span data-lang="en">Skip to content</span><span data-lang="he">דלג לתוכן</span>
+  </a>
+
+  <!-- Gentle falling snow (disabled automatically for users who prefer reduced motion) -->
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="Diana & Roni — back to top">D <span>&amp;</span> R</a>
+
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+      <span class="sr-only" data-lang="en">Menu</span><span class="sr-only" data-lang="he">תפריט</span>
+      <span class="nav__burger" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Main">
+      <a href="#schedule"><span data-lang="en">Schedule</span><span data-lang="he">לוח זמנים</span></a>
+      <a href="#travel"><span data-lang="en">Flights</span><span data-lang="he">טיסות</span></a>
+      <a href="#transport"><span data-lang="en">Getting Around</span><span data-lang="he">הסעות</span></a>
+      <a href="#gallery"><span data-lang="en">Gallery</span><span data-lang="he">גלריה</span></a>
+    </nav>
+
+    <button class="lang-toggle" id="langToggle" type="button">
+      <span data-lang="en" aria-label="עברית">עב</span><span data-lang="he" aria-label="English">EN</span>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="hero__text">
+        <p class="eyebrow">
+          <span data-lang="en">Tbilisi · Georgia · March 2027</span>
+          <span data-lang="he">טביליסי · גאורגיה · מרץ 2027</span>
+        </p>
+        <h1 class="hero__title">
+          <span data-lang="en">Diana <em>&amp;</em> Roni</span>
+          <span data-lang="he">דיאנה <em>&amp;</em> רוני</span>
+        </h1>
+        <p class="hero__subtitle">
+          <span data-lang="en">are getting married!</span>
+          <span data-lang="he">מתחתנים!</span>
+        </p>
+        <p class="hero__welcome">
+          <span data-lang="en">We're celebrating with a week of snow, mountains and good company in Georgia, and we'd love for you to be part of it. Come for the whole adventure or just the parts that suit you best.</span>
+          <span data-lang="he">אנחנו חוגגים שבוע של שלג, הרים וחברים טובים בגאורגיה, ונשמח מאוד שתהיו חלק מזה. בואו לכל ההרפתקה, או רק לחלקים שמתאימים לכם.</span>
+        </p>
+
+        <div class="countdown" id="countdown" aria-live="off">
+          <div><strong data-unit="days">–</strong><span data-lang="en">days</span><span data-lang="he">ימים</span></div>
+          <div><strong data-unit="hours">–</strong><span data-lang="en">hours</span><span data-lang="he">שעות</span></div>
+          <div><strong data-unit="minutes">–</strong><span data-lang="en">minutes</span><span data-lang="he">דקות</span></div>
+        </div>
+
+        <a href="#schedule" class="btn">
+          <span data-lang="en">See the plan</span><span data-lang="he">לתוכנית</span>
+        </a>
+      </div>
+
+      <figure class="hero__photo">
+        <!-- 📸 SWAP ME: replace assets/images/hero.jpg with your featured photo
+             (portrait or square works best, ~1600px on the long side). -->
+        <img src="assets/images/hero.jpg" alt="Diana and Roni" width="1600" height="1040" fetchpriority="high" />
+      </figure>
+    </section>
+
+    <!-- ============ DATES BANNER ============ -->
+    <div class="banner">
+      <p>
+        <span data-lang="en">We'll be in Georgia from <strong>March 17</strong> to <strong>March 24</strong>. Join us whenever you can!</span>
+        <span data-lang="he">אנחנו בגאורגיה <strong>מה־17 ועד ה־24 במרץ</strong>. הצטרפו מתי שנוח לכם!</span>
+      </p>
+    </div>
+
+    <!-- ============ SCHEDULE ============ -->
+    <section class="section" id="schedule" aria-labelledby="schedule-title">
+      <header class="section__head">
+        <p class="eyebrow"><span data-lang="en">The plan</span><span data-lang="he">התוכנית</span></p>
+        <h2 id="schedule-title"><span data-lang="en">Schedule</span><span data-lang="he">לוח זמנים</span></h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="timeline__item timeline__item--minor reveal">
+          <time datetime="2027-03-17" class="timeline__date">
+            <span data-lang="en">March 17</span><span data-lang="he">17 במרץ</span>
+          </time>
+          <div class="timeline__card">
+            <h3><span data-lang="en">Arrivals</span><span data-lang="he">נחיתות</span></h3>
+            <p>
+              <span data-lang="en">Fly into Tbilisi. Transport to the mountains leaves in the evening or the next morning.</span>
+              <span data-lang="he">נוחתים בטביליסי. ההסעה להרים יוצאת בערב או למחרת בבוקר.</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <time datetime="2027-03-18/2027-03-21" class="timeline__date">
+            <span data-lang="en">March 18–21</span><span data-lang="he">18–21 במרץ</span>
+          </time>
+          <div class="timeline__card">
+            <span class="timeline__icon" aria-hidden="true">⛷️</span>
+            <h3>
+              <span data-lang="en">Joint Bachelorette &amp; Bachelor Ski Trip</span>
+              <!-- ✏️ Hebrew title for the ski trip — edit freely -->
+              <span data-lang="he">טיול סקי משותף: מסיבת רווקות ורווקים</span>
+            </h3>
+            <p>
+              <span data-lang="en">Four days of skiing, snowboarding, hot drinks and cozy evenings in the Caucasus mountains. All levels welcome, including the après-ski-only crowd.</span>
+              <span data-lang="he">ארבעה ימים של סקי, סנובורד, משקאות חמים וערבים נעימים בהרי הקווקז. כל הרמות מוזמנות, גם מי שבא רק בשביל האפרה־סקי.</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <time datetime="2027-03-22" class="timeline__date">
+            <span data-lang="en">March 22</span><span data-lang="he">22 במרץ</span>
+          </time>
+          <div class="timeline__card">
+            <span class="timeline__icon" aria-hidden="true">☕</span>
+            <h3><span data-lang="en">Chill Day in Tbilisi</span><span data-lang="he">יום רגוע בטביליסי</span></h3>
+            <p>
+              <span data-lang="en">Recover, wander the old town, try the sulfur baths, or just relax before the big day.</span>
+              <span data-lang="he">מתאוששים, מטיילים בעיר העתיקה, קופצים למרחצאות הגופרית, או פשוט נחים לפני היום הגדול.</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline__item timeline__item--highlight reveal">
+          <time datetime="2027-03-23" class="timeline__date">
+            <span data-lang="en">March 23</span><span data-lang="he">23 במרץ</span>
+          </time>
+          <div class="timeline__card">
+            <span class="timeline__icon" aria-hidden="true">💍</span>
+            <h3><span data-lang="en">Wedding Ceremony &amp; Celebration Dinner</span><span data-lang="he">טקס החתונה וארוחת חגיגה</span></h3>
+            <p>
+              <span data-lang="en">The official ceremony followed by a celebration dinner in Tbilisi. Venue details coming soon.</span>
+              <span data-lang="he">הטקס הרשמי ואחריו ארוחת חגיגה בטביליסי. פרטים על המקום בהמשך.</span>
+            </p>
+          </div>
+        </li>
+
+        <li class="timeline__item timeline__item--minor reveal">
+          <time datetime="2027-03-24" class="timeline__date">
+            <span data-lang="en">March 24</span><span data-lang="he">24 במרץ</span>
+          </time>
+          <div class="timeline__card">
+            <h3><span data-lang="en">Departures</span><span data-lang="he">טסים הביתה</span></h3>
+            <p>
+              <span data-lang="en">Safe travels home, full of khachapuri and memories.</span>
+              <span data-lang="he">טיסה טובה הביתה, מלאים בחצ'פורי ובזיכרונות.</span>
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ FLIGHTS & TRAVEL ============ -->
+    <section class="section section--tinted" id="travel" aria-labelledby="travel-title">
+      <header class="section__head">
+        <p class="eyebrow"><span data-lang="en">Getting there</span><span data-lang="he">איך מגיעים</span></p>
+        <h2 id="travel-title"><span data-lang="en">Flights &amp; Travel</span><span data-lang="he">טיסות ונסיעה</span></h2>
+      </header>
+
+      <div class="card card--wide reveal">
+        <span class="card__icon" aria-hidden="true">✈️</span>
+        <h3><span data-lang="en">Fly into Tbilisi International Airport (TBS)</span><span data-lang="he">טסים לנמל התעופה הבינלאומי של טביליסי (TBS)</span></h3>
+        <p>
+          <span data-lang="en">There are direct flights from Israel to Tbilisi (about 2.5 hours). Book early, since March fills up fast.</span>
+          <span data-lang="he">יש טיסות ישירות מישראל לטביליסי (כשעתיים וחצי). כדאי להזמין מוקדם, כי מרץ מתמלא מהר.</span>
+        </p>
+      </div>
+
+      <h3 class="subhead"><span data-lang="en">Direct flights from Israel</span><span data-lang="he">טיסות ישירות מישראל</span></h3>
+      <ul class="airlines">
+        <li class="reveal"><a href="https://www.israir.co.il" target="_blank" rel="noopener">Israir<span data-lang="he"> · ישראייר</span></a></li>
+        <li class="reveal"><a href="https://www.elal.com" target="_blank" rel="noopener">El Al<span data-lang="he"> · אל על</span></a></li>
+        <li class="reveal"><a href="https://www.arkia.co.il" target="_blank" rel="noopener">Arkia<span data-lang="he"> · ארקיע</span></a></li>
+      </ul>
+
+      <div class="tips reveal">
+        <h3><span data-lang="en">Good to know</span><span data-lang="he">טוב לדעת</span></h3>
+        <ul>
+          <li><span data-lang="en">Israeli passport holders don't need a visa for Georgia.</span><span data-lang="he">בעלי דרכון ישראלי לא צריכים ויזה לגאורגיה.</span></li>
+          <li><span data-lang="en">The local currency is the Georgian Lari (GEL). Cards are widely accepted in Tbilisi.</span><span data-lang="he">המטבע המקומי הוא לארי גאורגי (GEL). אפשר לשלם בכרטיס אשראי כמעט בכל מקום בטביליסי.</span></li>
+          <li><span data-lang="en">Pack warm layers for the mountains and a nice outfit for the wedding dinner.</span><span data-lang="he">קחו בגדים חמים להרים ובגד חגיגי לארוחת החתונה.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GROUND TRANSPORTATION ============ -->
+    <section class="section" id="transport" aria-labelledby="transport-title">
+      <header class="section__head">
+        <p class="eyebrow"><span data-lang="en">On the ground</span><span data-lang="he">בשטח</span></p>
+        <h2 id="transport-title"><span data-lang="en">Ground Transportation</span><span data-lang="he">הסעות</span></h2>
+      </header>
+
+      <div class="card card--wide reveal">
+        <span class="card__icon" aria-hidden="true">🚐</span>
+        <h3><span data-lang="en">Organized transport to the ski area</span><span data-lang="he">הסעה מאורגנת לאתר הסקי</span></h3>
+        <p>
+          <span data-lang="en">We'll arrange transport from Tbilisi to the ski area on the <strong>evening of March 17</strong> or the <strong>morning of March 18</strong>, timed around everyone's arrivals so it's as easy as possible.</span>
+          <span data-lang="he">נארגן הסעה מטביליסי לאתר הסקי ב<strong>ערב ה־17 במרץ</strong> או ב<strong>בוקר ה־18 במרץ</strong>, לפי זמני הנחיתה של כולם, כדי שיהיה לכם הכי נוח.</span>
+        </p>
+        <p class="note">
+          <span data-lang="en">💌 Once you've booked, send us your flight details so we can plan the rides.</span>
+          <span data-lang="he">💌 אחרי שהזמנתם, שלחו לנו את פרטי הטיסה כדי שנוכל לתכנן את ההסעות.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO GALLERY ============ -->
+    <section class="section section--tinted" id="gallery" aria-labelledby="gallery-title">
+      <header class="section__head">
+        <p class="eyebrow"><span data-lang="en">Moments</span><span data-lang="he">רגעים</span></p>
+        <h2 id="gallery-title"><span data-lang="en">Gallery</span><span data-lang="he">גלריה</span></h2>
+        <p class="section__lead">
+          <span data-lang="en">Tap any photo to open it.</span>
+          <span data-lang="he">לחצו על תמונה כדי להגדיל.</span>
+        </p>
+      </header>
+
+      <!--
+        📸 SWAP ME: replace assets/images/gallery-1.jpg … gallery-8.jpg with your photos.
+        To ADD a photo: drop the file into assets/images/ and copy one <li> block below.
+        To REMOVE a photo: delete its <li> block.
+        The "alt" text describes the photo for screen readers; data-caption is shown in the enlarged view.
+      -->
+      <ul class="gallery" id="galleryGrid">
+        <li><button type="button" class="gallery__item"><img src="assets/images/gallery-1.jpg" alt="Placeholder photo 1" data-caption="Photo 1" loading="lazy" width="960" height="640" /></button></li>
+        <li class="gallery__tall"><button type="button" class="gallery__item"><img src="assets/images/gallery-2.jpg" alt="Placeholder photo 2" data-caption="Photo 2" loading="lazy" width="640" height="960" /></button></li>
+        <li><button type="button" class="gallery__item"><img src="assets/images/gallery-3.jpg" alt="Placeholder photo 3" data-caption="Photo 3" loading="lazy" width="960" height="640" /></button></li>
+        <li><button type="button" class="gallery__item"><img src="assets/images/gallery-4.jpg" alt="Placeholder photo 4" data-caption="Photo 4" loading="lazy" width="960" height="640" /></button></li>
+        <li class="gallery__tall"><button type="button" class="gallery__item"><img src="assets/images/gallery-5.jpg" alt="Placeholder photo 5" data-caption="Photo 5" loading="lazy" width="640" height="960" /></button></li>
+        <li><button type="button" class="gallery__item"><img src="assets/images/gallery-6.jpg" alt="Placeholder photo 6" data-caption="Photo 6" loading="lazy" width="960" height="640" /></button></li>
+        <li><button type="button" class="gallery__item"><img src="assets/images/gallery-7.jpg" alt="Placeholder photo 7" data-caption="Photo 7" loading="lazy" width="960" height="640" /></button></li>
+        <li class="gallery__tall"><button type="button" class="gallery__item"><img src="assets/images/gallery-8.jpg" alt="Placeholder photo 8" data-caption="Photo 8" loading="lazy" width="640" height="960" /></button></li>
+      </ul>
+
+      <!--
+        OPTIONAL: let guests share their own photos.
+        GitHub Pages can't accept uploads, so create a shared album (Google Photos,
+        iCloud shared album, etc.), paste its link below, and remove the comment markers.
+
+      <p class="gallery__share">
+        <a class="btn btn--ghost" href="PASTE-YOUR-SHARED-ALBUM-LINK" target="_blank" rel="noopener">
+          <span data-lang="en">📷 Add your photos</span><span data-lang="he">📷 הוסיפו תמונות</span>
+        </a>
+      </p>
+      -->
+    </section>
+
+    <!-- ============ CLOSING ============ -->
+    <section class="closing" aria-labelledby="closing-title">
+      <h2 id="closing-title"><span data-lang="en">We can't wait to celebrate with you</span><span data-lang="he">מחכים לחגוג איתכם</span></h2>
+      <p>
+        <span data-lang="en">No RSVP form needed. Just reach out to us directly and tell us which parts you'll join.</span>
+        <span data-lang="he">אין צורך באישור הגעה באתר. פשוט דברו איתנו ותגידו לאילו חלקים אתם מצטרפים.</span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><span data-lang="en">With love, Diana &amp; Roni</span><span data-lang="he">באהבה, דיאנה ורוני</span> ❄️</p>
+  </footer>
+
+  <!-- ============ LIGHTBOX (enlarged photo viewer) ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Close">✕</button>
+    <button class="lightbox__btn lightbox__prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+    <figure class="lightbox__figure">
+      <img id="lbImg" alt="" />
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__next" id="lbNext" type="button" aria-label="Next photo">›</button>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
