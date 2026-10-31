@@ -6,7 +6,6 @@
 const WEDDING_DATE = new Date("2027-03-23T18:00:00+04:00");
 
 const root = document.documentElement;
-root.classList.add("js");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- Language (English / Hebrew) ---------- */
@@ -52,6 +51,7 @@ function setLanguage(lang) {
 /* ---------- Countdown ---------- */
 (function initCountdown() {
   const el = document.getElementById("countdown");
+  if (!el) return;
   const days = el.querySelector('[data-unit="days"]');
 
   function tick() {
@@ -70,6 +70,8 @@ function setLanguage(lang) {
     items.forEach((el) => el.classList.add("is-visible"));
     return;
   }
+  // Only hide items for the fade-in once this code is running, so content never stays invisible
+  root.classList.add("js");
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
