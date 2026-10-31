@@ -11,11 +11,13 @@
   --sky: #8fb3d4;
   --alpine: #4f7699;
   --slate: #26394d;
+  --pine: #2e5a44;       /* evergreen accents */
+  --pine-deep: #1b3b2b;
   --ink: #1a2633;
   --muted: #5d7187;
 
-  --font-display: "Cormorant Garamond", "Frank Ruhl Libre", Georgia, serif;
-  --font-body: "Manrope", "Heebo", system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Montserrat", system-ui, -apple-system, sans-serif;
 
   --radius: 18px;
   --shadow: 0 10px 40px -12px rgba(38, 57, 77, 0.18);
@@ -24,8 +26,8 @@
 }
 
 html[lang="he"] {
-  --font-display: "Frank Ruhl Libre", "Cormorant Garamond", serif;
-  --font-body: "Heebo", "Manrope", system-ui, sans-serif;
+  --font-display: "Rubik", "Heebo", system-ui, sans-serif;
+  --font-body: "Heebo", "Rubik", system-ui, sans-serif;
 }
 
 /* ---------- Language switching ---------- */
@@ -57,7 +59,7 @@ html[lang="he"] h3 { font-size: 1.35rem; }
 p { margin: 0 0 1em; }
 a { color: var(--alpine); }
 
-:focus-visible { outline: 2px solid var(--alpine); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 2px solid var(--pine); outline-offset: 3px; border-radius: 6px; }
 
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -76,7 +78,7 @@ a { color: var(--alpine); }
   letter-spacing: .22em;
   font-size: .78rem;
   font-weight: 600;
-  color: var(--alpine);
+  color: var(--pine);
   margin-bottom: .75rem;
 }
 html[lang="he"] .eyebrow { letter-spacing: .08em; font-size: .9rem; }
@@ -85,7 +87,7 @@ html[lang="he"] .eyebrow { letter-spacing: .08em; font-size: .9rem; }
   display: inline-block;
   padding: .85rem 1.9rem;
   border-radius: 999px;
-  background: var(--slate);
+  background: var(--pine);
   color: var(--snow);
   text-decoration: none;
   font-weight: 500;
@@ -93,7 +95,7 @@ html[lang="he"] .eyebrow { letter-spacing: .08em; font-size: .9rem; }
   transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
   box-shadow: var(--shadow);
 }
-.btn:hover { background: var(--alpine); transform: translateY(-2px); }
+.btn:hover { background: var(--pine-deep); transform: translateY(-2px); }
 .btn--ghost { background: transparent; color: var(--slate); border: 1px solid var(--glacier); box-shadow: none; }
 .btn--ghost:hover { background: var(--snow); }
 
@@ -119,13 +121,13 @@ main, .footer, .nav { position: relative; z-index: 2; }
   color: var(--slate); text-decoration: none;
   margin-inline-end: auto;
 }
-.nav__logo span { color: var(--sky); font-style: italic; }
+.nav__logo span { color: var(--pine); }
 .nav__menu { display: flex; gap: clamp(1rem, 3vw, 2rem); }
 .nav__menu a {
   color: var(--slate); text-decoration: none; font-size: .92rem; font-weight: 500;
   padding: .3rem 0; border-bottom: 1px solid transparent; transition: border-color .2s;
 }
-.nav__menu a:hover { border-color: var(--sky); }
+.nav__menu a:hover { border-color: var(--pine); }
 
 .lang-toggle {
   font: 600 .85rem var(--font-body);
@@ -184,17 +186,17 @@ main, .footer, .nav { position: relative; z-index: 2; }
   padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2.5rem);
 }
 .hero__title {
-  font-size: clamp(3.4rem, 11vw, 6.2rem);
+  font-size: clamp(3rem, 9vw, 5rem);
   font-weight: 400;
   letter-spacing: -.01em;
   margin-bottom: .1em;
 }
-.hero__title em { color: var(--sky); font-weight: 400; }
+.hero__title em { color: var(--pine); font-weight: 400; }
 .hero__subtitle {
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(1.5rem, 4vw, 2rem);
-  color: var(--alpine);
+  color: var(--pine);
   margin-bottom: 1.25rem;
 }
 html[lang="he"] .hero__subtitle { font-style: normal; }
@@ -220,7 +222,7 @@ html[lang="he"] .hero__subtitle { font-style: normal; }
   text-align: center;
   display: flex; flex-direction: column;
 }
-.countdown strong { font-family: var(--font-display); font-size: 2rem; font-weight: 500; color: var(--slate); line-height: 1.1; }
+.countdown strong { font-family: var(--font-display); font-size: 2rem; font-weight: 500; color: var(--pine-deep); line-height: 1.1; }
 .countdown span { font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
 html[lang="he"] .countdown span { letter-spacing: 0; font-size: .85rem; }
 
@@ -233,7 +235,7 @@ html[lang="he"] .countdown span { letter-spacing: 0; font-size: .85rem; }
 
 /* ---------- Dates banner ---------- */
 .banner {
-  background: var(--slate);
+  background: var(--pine-deep);
   color: var(--frost);
   text-align: center;
   padding: 1.25rem 1.5rem;
@@ -266,7 +268,7 @@ html[lang="he"] .countdown span { letter-spacing: 0; font-size: .85rem; }
 .timeline::before {
   content: ""; position: absolute; top: .5rem; bottom: .5rem;
   inset-inline-start: 140px; width: 1px;
-  background: linear-gradient(var(--glacier), var(--sky), var(--glacier));
+  background: linear-gradient(var(--glacier), var(--sky), var(--pine));
 }
 .timeline__item {
   display: grid; grid-template-columns: 140px 1fr;
@@ -280,7 +282,7 @@ html[lang="he"] .countdown span { letter-spacing: 0; font-size: .85rem; }
 }
 .timeline__date {
   font-family: var(--font-display);
-  font-size: 1.35rem; font-weight: 600; color: var(--alpine);
+  font-size: 1.35rem; font-weight: 600; color: var(--pine);
   text-align: end; padding-top: 1rem;
 }
 .timeline__card {
@@ -300,12 +302,12 @@ html[lang="he"] .countdown span { letter-spacing: 0; font-size: .85rem; }
 .timeline__item--minor::before { width: 9px; height: 9px; inset-inline-start: 136px; border-color: var(--glacier); top: 1.35rem; }
 
 .timeline__item--highlight .timeline__card {
-  background: linear-gradient(135deg, var(--slate), var(--alpine));
+  background: linear-gradient(135deg, var(--pine-deep), var(--pine));
   border: 0;
 }
 .timeline__item--highlight .timeline__card h3 { color: var(--snow); }
 .timeline__item--highlight .timeline__card p { color: var(--ice); }
-.timeline__item--highlight::before { background: var(--alpine); border-color: var(--alpine); box-shadow: 0 0 0 5px var(--ice); }
+.timeline__item--highlight::before { background: var(--pine); border-color: var(--pine); box-shadow: 0 0 0 5px var(--ice); }
 
 @media (max-width: 640px) {
   .timeline::before { inset-inline-start: 6px; }
@@ -352,13 +354,13 @@ html[lang="he"] .countdown span { letter-spacing: 0; font-size: .85rem; }
   color: var(--slate); text-decoration: none;
   transition: transform .2s, box-shadow .2s, border-color .2s;
 }
-.airlines a:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--sky); }
+.airlines a:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--pine); }
 @media (max-width: 560px) { .airlines { grid-template-columns: 1fr; } }
 
 .tips {
   max-width: 760px; margin: 3rem auto 0;
   padding: 1.5rem 1.75rem;
-  border-inline-start: 3px solid var(--sky);
+  border-inline-start: 3px solid var(--pine);
   background: rgba(255, 255, 255, .6);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
