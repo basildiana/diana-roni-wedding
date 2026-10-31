@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Diana & Ronnie — site scripts (no dependencies)
+   Diana & Roni — site scripts (no dependencies)
    SHARED by both branches (main = English, hebrew-version = Hebrew).
    ========================================================================== */
 
