@@ -1,174 +1,173 @@
 <!DOCTYPE html>
 <!--
-  Diana & Ronnie — Wedding Website (ENGLISH · branch: main)
-  The Hebrew site lives on the `hebrew-version` branch. css/, js/ and assets/
+  Diana & Roni — Wedding Website (HEBREW · branch: hebrew-version)
+  The English site lives on the `main` branch. css/, js/ and assets/
   are identical on both branches; only index.html and README.md differ.
 -->
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diana & Ronnie · Georgia 2027</title>
-  <meta name="description" content="Diana & Ronnie are getting married in Tbilisi, Georgia. Schedule and travel info." />
+  <title>דיאנה ורוני · גאורגיה 2027</title>
+  <meta name="description" content="דיאנה ורוני מתחתנים בטביליסי, גאורגיה. לוח זמנים ומידע על הנסיעה." />
   <meta name="theme-color" content="#f5f8fb" />
 
-  <!-- Link previews (WhatsApp, etc.) -->
-  <meta property="og:title" content="Diana & Ronnie · Georgia 2027" />
-  <meta property="og:description" content="We'd love to celebrate with you in Georgia, March 2027" />
-  <meta property="og:image" content="https://basildiana.github.io/diana-roni-wedding/assets/images/picnic.jpg" />
+  <!-- תצוגה מקדימה של קישור (וואטסאפ וכו') -->
+  <meta property="og:title" content="דיאנה ורוני · גאורגיה 2027" />
+  <meta property="og:description" content="נשמח לחגוג איתכם בגאורגיה, מרץ 2027" />
+  <meta property="og:image" content="https://basildiana.github.io/diana-roni-wedding-he/assets/images/picnic.jpg" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄️</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">דלגו לתוכן</a>
 
-  <!-- Falling snow (turned off automatically for visitors who prefer reduced motion) -->
+  <!-- שלג יורד (כבוי אוטומטית למי שהגדיר הפחתת תנועה) -->
   <canvas id="snow" aria-hidden="true"></canvas>
 
-  <!-- ============ NAVIGATION ============ -->
+  <!-- ============ ניווט ============ -->
   <header class="nav">
-    <a href="#top" class="nav__logo" aria-label="Diana & Ronnie, back to top">D <span>&amp;</span> R</a>
+    <a href="#top" class="nav__logo" aria-label="דיאנה ורוני, חזרה למעלה">D <span>&amp;</span> R</a>
 
     <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu">
-      <span class="sr-only">Menu</span>
+      <span class="sr-only">תפריט</span>
       <span class="nav__burger" aria-hidden="true"></span>
     </button>
 
-    <nav class="nav__menu" id="navMenu" aria-label="Main">
-      <a href="#schedule">Schedule</a>
-      <a href="#travel">Flights</a>
-      <a href="#transport">Getting Around</a>
+    <nav class="nav__menu" id="navMenu" aria-label="ראשי">
+      <a href="#schedule">לוח זמנים</a>
+      <a href="#travel">טיסות</a>
+      <a href="#transport">התניידות</a>
     </nav>
 
-    <!-- ✏️ Link to the Hebrew site (hebrew-version branch) -->
-    <a class="lang-toggle" href="https://basildiana.github.io/diana-roni-wedding-he/" lang="he" hreflang="he" aria-label="לאתר בעברית">עב</a>
+    <!-- ✏️ קישור לאתר באנגלית (branch main) -->
+    <a class="lang-toggle" href="https://basildiana.github.io/diana-roni-wedding/" lang="en" hreflang="en" aria-label="English site">EN</a>
   </header>
 
   <main id="main">
-    <!-- ============ HERO ============ -->
+    <!-- ============ תמונה ראשית ============ -->
     <section class="hero" id="top">
       <figure class="hero__panorama">
-        <!-- 📸 SWAP ME: assets/images/picnic.jpg (a wide/landscape photo works best).
-             Adjust object-position to keep the two of you in frame when cropped. -->
-        <img src="assets/images/picnic.jpg" alt="Diana and Ronnie on a picnic blanket, looking out over the mountains" width="2048" height="1366" style="object-position: center 72%" fetchpriority="high" />
+        <!-- 📸 SWAP ME: assets/images/picnic.jpg -->
+        <img src="assets/images/picnic.jpg" alt="דיאנה ורוני על שמיכת פיקניק מול נוף ההרים" width="2048" height="1366" style="object-position: center 72%" fetchpriority="high" />
       </figure>
 
       <div class="hero__text">
-        <p class="eyebrow">Tbilisi · Georgia · March 2027</p>
-        <h1 class="hero__title">Diana <em>&amp;</em> Ronnie</h1>
-        <p class="hero__subtitle">are getting married!</p>
+        <p class="eyebrow">טביליסי · גאורגיה · מרץ 2027</p>
+        <h1 class="hero__title">דיאנה <em>&amp;</em> רוני</h1>
+        <p class="hero__subtitle">מתחתנים!</p>
         <p class="hero__welcome">
-          We'll be in Georgia from March 17 to 24 for a week of snow, mountains and good company,
-          and we'd love for you to be part of it. Come for the whole adventure or just the parts
-          that suit you best.
+          אנחנו בגאורגיה מה־17 ועד ה־24 במרץ, לשבוע של שלג, הרים וחברים טובים,
+          ונשמח מאוד שתהיו חלק מזה. בואו לכל ההרפתקה, או רק לחלקים שמתאימים לכם.
         </p>
 
         <p class="countdown" id="countdown">
           <strong id="countdownDays">–</strong>
-          <span>days to go</span>
+          <span>ימים לחתונה</span>
         </p>
 
-        <a href="#schedule" class="btn">See the plan</a>
+        <a href="#schedule" class="btn">לתוכנית</a>
       </div>
     </section>
 
-    <!-- ============ SCHEDULE ============ -->
+    <!-- ============ לוח זמנים ============ -->
     <section class="section" id="schedule" aria-labelledby="schedule-title">
       <header class="section__head">
-        <p class="eyebrow">The plan</p>
-        <h2 id="schedule-title">Schedule</h2>
-        <p class="section__lead">Two parts to the trip. Join one or both, whatever works for you.</p>
+        <p class="eyebrow">התוכנית</p>
+        <h2 id="schedule-title">לוח זמנים</h2>
+        <p class="section__lead">הטיול מתחלק לשני חלקים. הצטרפו לאחד או לשניהם, איך שנוח לכם.</p>
       </header>
 
       <ol class="timeline">
         <li class="timeline__item reveal">
           <div class="timeline__date">
-            <time class="badge" datetime="2027-03-18/2027-03-21">March 18–21</time>
+            <time class="badge" datetime="2027-03-18/2027-03-21">18–21 במרץ</time>
           </div>
           <article class="timeline__card">
-            <p class="timeline__label">Event 1</p>
-            <h3>Bachelorette &amp; Bachelor Ski Trip</h3>
+            <p class="timeline__label">אירוע 1</p>
+            <!-- ✏️ כותרת טיול הסקי, אפשר לשנות -->
+            <h3>טיול סקי משותף: מסיבת רווקות ורווקים</h3>
             <p>
-              A joint ski trip in Gudauri: skiing, snowboarding, hot drinks and cozy evenings in the
-              Caucasus mountains. All levels welcome, including the après-ski-only crowd.
+              טיול סקי משותף בגודאורי: סקי, סנובורד, משקאות חמים וערבים נעימים בהרי הקווקז.
+              כל הרמות מוזמנות, גם מי שבא רק בשביל האפרה־סקי.
             </p>
           </article>
         </li>
 
         <li class="timeline__item timeline__item--highlight reveal">
           <div class="timeline__date">
-            <time class="badge" datetime="2027-03-22/2027-03-24">March 22–24</time>
+            <time class="badge" datetime="2027-03-22/2027-03-24">22–24 במרץ</time>
           </div>
           <article class="timeline__card">
-            <p class="timeline__label">Event 2</p>
-            <h3>Wedding Day Ceremony &amp; Celebration</h3>
+            <p class="timeline__label">אירוע 2</p>
+            <h3>החתונה: טקס וחגיגה</h3>
             <ul class="timeline__days">
-              <li><time datetime="2027-03-22">Mar 22</time><span>A relaxed day in Tbilisi</span></li>
-              <li class="is-main"><time datetime="2027-03-23">Mar 23</time><span>Main Ceremony &amp; Celebration Dinner</span></li>
-              <li><time datetime="2027-03-24">Mar 24</time><span>Farewells &amp; flights home</span></li>
+              <li><time datetime="2027-03-22">22.3</time><span>יום רגוע בטביליסי</span></li>
+              <li class="is-main"><time datetime="2027-03-23">23.3</time><span>הטקס וארוחת החגיגה</span></li>
+              <li><time datetime="2027-03-24">24.3</time><span>פרידות וטיסות הביתה</span></li>
             </ul>
           </article>
         </li>
       </ol>
     </section>
 
-    <!-- ============ FLIGHTS & TRAVEL ============ -->
+    <!-- ============ טיסות ============ -->
     <section class="section section--tinted" id="travel" aria-labelledby="travel-title">
       <header class="section__head">
-        <p class="eyebrow">Getting there</p>
-        <h2 id="travel-title">Flights &amp; Travel</h2>
+        <p class="eyebrow">איך מגיעים</p>
+        <h2 id="travel-title">טיסות ונסיעה</h2>
       </header>
 
       <div class="card reveal">
         <span class="card__icon" aria-hidden="true">✈️</span>
-        <h3>Fly into Tbilisi International Airport (TBS)</h3>
-        <p>There are direct flights from Israel to Tbilisi, about two and a half hours in the air.</p>
+        <h3>טסים לנמל התעופה הבינלאומי של טביליסי (TBS)</h3>
+        <p>יש טיסות ישירות מישראל לטביליסי, כשעתיים וחצי באוויר.</p>
       </div>
 
-      <h3 class="subhead">Direct flights from Israel</h3>
+      <h3 class="subhead">טיסות ישירות מישראל</h3>
       <ul class="airlines">
-        <li class="reveal"><a href="https://www.israir.co.il" target="_blank" rel="noopener">Israir</a></li>
-        <li class="reveal"><a href="https://www.elal.com" target="_blank" rel="noopener">El Al</a></li>
-        <li class="reveal"><a href="https://www.arkia.co.il" target="_blank" rel="noopener">Arkia</a></li>
+        <li class="reveal"><a href="https://www.israir.co.il" target="_blank" rel="noopener">ישראייר</a></li>
+        <li class="reveal"><a href="https://www.elal.com" target="_blank" rel="noopener">אל על</a></li>
+        <li class="reveal"><a href="https://www.arkia.co.il" target="_blank" rel="noopener">ארקיע</a></li>
       </ul>
     </section>
 
-    <!-- ============ GROUND TRANSPORT ============ -->
+    <!-- ============ התניידות ============ -->
     <section class="section" id="transport" aria-labelledby="transport-title">
       <header class="section__head">
-        <p class="eyebrow">On the ground</p>
-        <h2 id="transport-title">Getting Around</h2>
+        <p class="eyebrow">בשטח</p>
+        <h2 id="transport-title">התניידות</h2>
       </header>
 
       <div class="card reveal">
         <span class="card__icon" aria-hidden="true">🚐</span>
-        <h3>Tbilisi to Gudauri</h3>
+        <h3>מטביליסי לגודאורי</h3>
         <p>
-          Not sure how to get from Tbilisi to Gudauri? Don't worry, we'll help coordinate transport
-          options closer to the date, once arrival times are clear.
+          לא בטוחים איך מגיעים מטביליסי לגודאורי? אל דאגה, נעזור לתאם אפשרויות הסעה
+          קרוב יותר למועד, כשזמני הנחיתה יהיו ברורים.
         </p>
       </div>
     </section>
 
-    <!-- ============ PERSONAL TOUCH & SIGN-OFF ============ -->
+    <!-- ============ סיום ============ -->
     <section class="signoff" aria-labelledby="signoff-title">
       <figure class="signoff__photo reveal">
         <!-- 📸 SWAP ME: assets/images/meadow.jpg -->
-        <img src="assets/images/meadow.jpg" alt="Diana and Ronnie sitting together in an alpine meadow" width="2048" height="1366" loading="lazy" style="object-position: 56% center" />
+        <img src="assets/images/meadow.jpg" alt="דיאנה ורוני יושבים יחד באחו הררי" width="2048" height="1366" loading="lazy" style="object-position: 56% center" />
       </figure>
-      <h2 id="signoff-title">We'd love to celebrate with you!</h2>
-      <p class="signoff__names">Diana &amp; Ronnie</p>
-      <p class="signoff__note">No RSVP form needed. Just reach out to us directly and let us know which parts you'll join.</p>
+      <h2 id="signoff-title">נשמח לחגוג איתכם!</h2>
+      <p class="signoff__names">דיאנה ורוני</p>
+      <p class="signoff__note">אין צורך באישור הגעה באתר. פשוט דברו איתנו ותגידו לאילו חלקים אתם מצטרפים.</p>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Georgia · March 2027 ❄</p>
+    <p>גאורגיה · מרץ 2027 ❄</p>
   </footer>
 
   <script src="js/main.js" defer></script>

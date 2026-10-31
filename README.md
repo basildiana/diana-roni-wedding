@@ -1,4 +1,4 @@
-# Diana & Ronnie · Wedding Website ❄️
+# Diana & Roni · Wedding Website ❄️
 
 A single-page wedding invitation site for our week in Georgia (March 17–24, 2027).
 Plain HTML, CSS and JavaScript with no build step, so it runs as-is on GitHub Pages.
