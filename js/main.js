@@ -19,7 +19,10 @@ function setLanguage(lang) {
   let saved = null;
   try { saved = localStorage.getItem("lang"); } catch (_) {}
   const browserHebrew = (navigator.language || "").toLowerCase().startsWith("he");
-  setLanguage(saved || (browserHebrew ? "he" : "en"));
+  // A link like ?lang=he (or ?lang=en) always opens the site in that language.
+  const fromLink = new URLSearchParams(location.search).get("lang");
+  const linked = fromLink === "he" || fromLink === "en" ? fromLink : null;
+  setLanguage(linked || saved || (browserHebrew ? "he" : "en"));
 
   document.getElementById("langToggle").addEventListener("click", () => {
     setLanguage(root.lang === "he" ? "en" : "he");

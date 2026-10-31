@@ -59,6 +59,8 @@ All text lives in `index.html`. Each sentence appears **twice**, once inside `da
 
 The language button (EN / עב) switches between them. Hebrew is shown automatically to visitors whose phone is set to Hebrew, and the choice is remembered.
 
+To send someone a link that opens in Hebrew, use https://basildiana.github.io/diana-roni-wedding/?lang=he (and `?lang=en` for English).
+
 ### Countdown
 Change `WEDDING_DATE` at the top of `js/main.js`. The countdown hides itself after the date passes.
 
