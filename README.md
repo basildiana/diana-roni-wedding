@@ -1,10 +1,10 @@
 # Diana & Roni · Wedding Website ❄️
 
-A single-page, bilingual (English / Hebrew) wedding invitation site for Georgia, March 17–24, 2027.
+A single-page, three-language (English / Hebrew / Russian) wedding invitation site for Georgia, March 17–24, 2027.
 It's plain HTML, CSS and JavaScript, so there's no build step. It runs as-is on GitHub Pages.
 
 ```
-index.html            ← all page text (English + Hebrew)
+index.html            ← all page text (English + Hebrew + Russian)
 css/styles.css        ← colors, fonts, layout
 js/main.js            ← language switch, countdown, snow
 assets/images/        ← hero.jpg (top photo) + gallery-1.jpg (Gallery section photo)
@@ -55,11 +55,11 @@ Replace the files in `assets/images/` and **keep the same file names**:
 - File names are case-sensitive on GitHub Pages: `Photo.JPG` ≠ `photo.jpg`.
 
 ### Text
-All text lives in `index.html`. Each sentence appears **twice**, once inside `data-lang="en"` and once inside `data-lang="he"`. Edit both. Look for `✏️` comments for spots you'll probably want to tweak, like the Hebrew ski-trip title.
+All text lives in `index.html`. Each sentence appears **three times**: inside `data-lang="en"`, `data-lang="he"` and `data-lang="ru"`. Edit all three. Look for `✏️` comments for spots you'll probably want to tweak, like the Hebrew ski-trip title.
 
-The language button (EN / עב) switches between them. Hebrew is shown automatically to visitors whose phone is set to Hebrew, and the choice is remembered.
+The language buttons (EN / עב / RU) switch between them. Hebrew or Russian is shown automatically to visitors whose phone is set to that language, and the choice is remembered.
 
-To send someone a link that opens in Hebrew, use https://basildiana.github.io/diana-roni-wedding/?lang=he (and `?lang=en` for English).
+Links that open the site in one language: Hebrew https://basildiana.github.io/diana-roni-wedding/?lang=he · Russian https://basildiana.github.io/diana-roni-wedding/?lang=ru · English `?lang=en`.
 
 ### Countdown
 Change `WEDDING_DATE` at the top of `js/main.js`. The countdown hides itself after the date passes.

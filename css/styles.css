@@ -31,8 +31,9 @@ html[lang="he"] {
 }
 
 /* ---------- Language switching ---------- */
-html[lang="en"] [data-lang="he"],
-html[lang="he"] [data-lang="en"] { display: none !important; }
+html:not([lang="en"]) [data-lang="en"],
+html:not([lang="he"]) [data-lang="he"],
+html:not([lang="ru"]) [data-lang="ru"] { display: none !important; }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -129,17 +130,25 @@ main, .footer, .nav { position: relative; z-index: 2; }
 }
 .nav__menu a:hover { border-color: var(--pine); }
 
-.lang-toggle {
-  font: 600 .85rem var(--font-body);
-  color: var(--slate);
+.lang-switch {
+  display: flex;
   background: var(--snow);
   border: 1px solid var(--glacier);
   border-radius: 999px;
-  min-width: 48px; height: 36px;
-  cursor: pointer;
-  transition: background .2s;
+  padding: 2px;
 }
-.lang-toggle:hover { background: var(--ice); }
+.lang-switch button {
+  font: 600 .8rem "Montserrat", "Heebo", system-ui, sans-serif;
+  color: var(--slate);
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  min-width: 38px; height: 32px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang-switch button:hover { background: var(--ice); }
+.lang-switch button[aria-pressed="true"] { background: var(--pine); color: #fff; }
 
 .nav__toggle { display: none; }
 

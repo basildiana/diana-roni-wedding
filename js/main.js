@@ -8,25 +8,27 @@ const WEDDING_DATE = new Date("2027-03-23T18:00:00+04:00");
 const root = document.documentElement;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- Language (English / Hebrew) ---------- */
+/* ---------- Language (English / Hebrew / Russian) ---------- */
+const LANGUAGES = ["en", "he", "ru"];
+const langButtons = document.querySelectorAll("[data-set-lang]");
+
 function setLanguage(lang) {
   root.lang = lang;
   root.dir = lang === "he" ? "rtl" : "ltr";
+  langButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
   try { localStorage.setItem("lang", lang); } catch (_) { /* private mode */ }
 }
 
 (function initLanguage() {
+  const known = (l) => (LANGUAGES.includes(l) ? l : null);
   let saved = null;
-  try { saved = localStorage.getItem("lang"); } catch (_) {}
-  const browserHebrew = (navigator.language || "").toLowerCase().startsWith("he");
-  // A link like ?lang=he (or ?lang=en) always opens the site in that language.
-  const fromLink = new URLSearchParams(location.search).get("lang");
-  const linked = fromLink === "he" || fromLink === "en" ? fromLink : null;
-  setLanguage(linked || saved || (browserHebrew ? "he" : "en"));
+  try { saved = known(localStorage.getItem("lang")); } catch (_) {}
+  const browser = known((navigator.language || "").toLowerCase().slice(0, 2));
+  // A link like ?lang=he or ?lang=ru always opens the site in that language.
+  const linked = known(new URLSearchParams(location.search).get("lang"));
+  setLanguage(linked || saved || browser || "en");
 
-  document.getElementById("langToggle").addEventListener("click", () => {
-    setLanguage(root.lang === "he" ? "en" : "he");
-  });
+  langButtons.forEach((b) => b.addEventListener("click", () => setLanguage(b.dataset.setLang)));
 })();
 
 /* ---------- Mobile navigation ---------- */

@@ -2,10 +2,11 @@
 <!--
   Diana & Roni — Wedding Website
   ------------------------------------------------------------------
-  HOW THE TWO LANGUAGES WORK
-  Every piece of text appears twice: once with data-lang="en" and once
-  with data-lang="he". Only the active language is shown (see css/styles.css).
-  To edit text, change BOTH versions. The EN / עב button switches language.
+  HOW THE THREE LANGUAGES WORK
+  Every piece of text appears three times: with data-lang="en" (English),
+  data-lang="he" (Hebrew) and data-lang="ru" (Russian). Only the active
+  language is shown (see css/styles.css). To edit text, change ALL versions.
+  The EN / עב / RU buttons switch language.
   ------------------------------------------------------------------
 -->
 <html lang="en" dir="ltr">
@@ -27,11 +28,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Rubik:wght@400;500;600&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
 </head>
 <body>
   <a class="skip-link" href="#main">
-    <span data-lang="en">Skip to content</span><span data-lang="he">דלג לתוכן</span>
+    <span data-lang="en">Skip to content</span><span data-lang="he">דלג לתוכן</span><span data-lang="ru">Перейти к содержанию</span>
   </a>
 
   <!-- Gentle falling snow (disabled automatically for users who prefer reduced motion) -->
@@ -42,20 +43,22 @@
     <a href="#top" class="nav__logo" aria-label="Diana & Roni — back to top">D <span>&amp;</span> R</a>
 
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-      <span class="sr-only" data-lang="en">Menu</span><span class="sr-only" data-lang="he">תפריט</span>
+      <span class="sr-only" data-lang="en">Menu</span><span class="sr-only" data-lang="he">תפריט</span><span class="sr-only" data-lang="ru">Меню</span>
       <span class="nav__burger" aria-hidden="true"></span>
     </button>
 
     <nav class="nav__menu" id="navMenu" aria-label="Main">
-      <a href="#schedule"><span data-lang="en">Schedule</span><span data-lang="he">לוח זמנים</span></a>
-      <a href="#travel"><span data-lang="en">Flights</span><span data-lang="he">טיסות</span></a>
-      <a href="#transport"><span data-lang="en">Getting to Gudauri</span><span data-lang="he">לגודאורי</span></a>
-      <a href="#gallery"><span data-lang="en">Gallery</span><span data-lang="he">גלריה</span></a>
+      <a href="#schedule"><span data-lang="en">Schedule</span><span data-lang="he">לוח זמנים</span><span data-lang="ru">Программа</span></a>
+      <a href="#travel"><span data-lang="en">Flights</span><span data-lang="he">טיסות</span><span data-lang="ru">Перелёт</span></a>
+      <a href="#transport"><span data-lang="en">Getting to Gudauri</span><span data-lang="he">לגודאורי</span><span data-lang="ru">В Гудаури</span></a>
+      <a href="#gallery"><span data-lang="en">Gallery</span><span data-lang="he">גלריה</span><span data-lang="ru">Галерея</span></a>
     </nav>
 
-    <button class="lang-toggle" id="langToggle" type="button">
-      <span data-lang="en" aria-label="עברית">עב</span><span data-lang="he" aria-label="English">EN</span>
-    </button>
+    <div class="lang-switch" id="langSwitch" role="group" aria-label="Language · שפה · Язык">
+      <button type="button" data-set-lang="en" lang="en" aria-label="English">EN</button>
+      <button type="button" data-set-lang="he" lang="he" aria-label="עברית">עב</button>
+      <button type="button" data-set-lang="ru" lang="ru" aria-label="Русский">RU</button>
+    </div>
   </header>
 
   <main id="main">
@@ -65,26 +68,30 @@
         <p class="eyebrow">
           <span data-lang="en">Tbilisi · Georgia · March 2027</span>
           <span data-lang="he">טביליסי · גאורגיה · מרץ 2027</span>
+          <span data-lang="ru">Тбилиси · Грузия · Март 2027</span>
         </p>
         <h1 class="hero__title">
           <span data-lang="en">Diana <em>&amp;</em> Roni</span>
           <span data-lang="he">דיאנה <em>&amp;</em> רוני</span>
+          <span data-lang="ru">Диана <em>&amp;</em> Рони</span>
         </h1>
         <p class="hero__subtitle">
           <span data-lang="en">are getting married!</span>
           <span data-lang="he">מתחתנים!</span>
+          <span data-lang="ru">женятся!</span>
         </p>
         <p class="hero__welcome">
           <span data-lang="en">We are celebrating with a week of snow and mountains in Georgia, and we would love you to join us. Come for the whole week or just for some of it.</span>
           <span data-lang="he">אנחנו חוגגים שבוע של שלג, הרים וחברים טובים בגאורגיה, ונשמח מאוד שתהיו חלק מזה. בואו לכל ההרפתקה, או רק לחלקים שמתאימים לכם.</span>
+          <span data-lang="ru">Мы празднуем неделей снега и гор в Грузии и будем очень рады, если вы к нам присоединитесь. Приезжайте на всю неделю или только на часть.</span>
         </p>
 
         <div class="countdown" id="countdown" aria-live="off">
-          <div><strong data-unit="days">–</strong><span data-lang="en">days to go</span><span data-lang="he">ימים לחתונה</span></div>
+          <div><strong data-unit="days">–</strong><span data-lang="en">days to go</span><span data-lang="he">ימים לחתונה</span><span data-lang="ru">дней до свадьбы</span></div>
         </div>
 
         <a href="#schedule" class="btn">
-          <span data-lang="en">See the plan</span><span data-lang="he">לתוכנית</span>
+          <span data-lang="en">See the plan</span><span data-lang="he">לתוכנית</span><span data-lang="ru">Смотреть программу</span>
         </a>
       </div>
 
@@ -100,20 +107,21 @@
       <p>
         <span data-lang="en">We'll be in Georgia from <strong>March 17</strong> to <strong>March 24</strong>. Join us whenever you can!</span>
         <span data-lang="he">אנחנו בגאורגיה <strong>מה־17 ועד ה־24 במרץ</strong>. הצטרפו מתי שנוח לכם!</span>
+        <span data-lang="ru">Мы будем в Грузии <strong>с 17 по 24 марта</strong>. Присоединяйтесь, когда вам удобно!</span>
       </p>
     </div>
 
     <!-- ============ SCHEDULE ============ -->
     <section class="section" id="schedule" aria-labelledby="schedule-title">
       <header class="section__head">
-        <p class="eyebrow"><span data-lang="en">The plan</span><span data-lang="he">התוכנית</span></p>
-        <h2 id="schedule-title"><span data-lang="en">Schedule</span><span data-lang="he">לוח זמנים</span></h2>
+        <p class="eyebrow"><span data-lang="en">The plan</span><span data-lang="he">התוכנית</span><span data-lang="ru">План</span></p>
+        <h2 id="schedule-title"><span data-lang="en">Schedule</span><span data-lang="he">לוח זמנים</span><span data-lang="ru">Программа</span></h2>
       </header>
 
       <ol class="timeline">
         <li class="timeline__item reveal">
           <time datetime="2027-03-18/2027-03-21" class="timeline__date">
-            <span data-lang="en">March 18–21</span><span data-lang="he">18–21 במרץ</span>
+            <span data-lang="en">March 18–21</span><span data-lang="he">18–21 במרץ</span><span data-lang="ru">18–21 марта</span>
           </time>
           <div class="timeline__card">
             <span class="timeline__icon" aria-hidden="true">⛷️</span>
@@ -121,24 +129,27 @@
               <span data-lang="en">Ski Trip: Bachelor &amp; Bachelorette Party</span>
               <!-- ✏️ Hebrew title for the ski trip — edit freely -->
               <span data-lang="he">טיול סקי משותף: מסיבת רווקות ורווקים</span>
+              <span data-lang="ru">Лыжная поездка: мальчишник и девичник</span>
             </h3>
             <p>
               <span data-lang="en">Join us for four days of skiing in the mountains of Georgia!</span>
               <span data-lang="he">בואו להצטרף אלינו לארבעה ימים של סקי בהרי גאורגיה!</span>
+              <span data-lang="ru">Четыре дня катания на лыжах в горах Грузии. Присоединяйтесь!</span>
             </p>
           </div>
         </li>
 
         <li class="timeline__item timeline__item--highlight reveal">
           <time datetime="2027-03-22/2027-03-23" class="timeline__date">
-            <span data-lang="en">March 22–23</span><span data-lang="he">22–23 במרץ</span>
+            <span data-lang="en">March 22–23</span><span data-lang="he">22–23 במרץ</span><span data-lang="ru">22–23 марта</span>
           </time>
           <div class="timeline__card">
             <span class="timeline__icon" aria-hidden="true">💍</span>
-            <h3><span data-lang="en">Wedding Ceremony &amp; Dinner</span><span data-lang="he">טקס החתונה וארוחת חגיגה</span></h3>
+            <h3><span data-lang="en">Wedding Ceremony &amp; Dinner</span><span data-lang="he">טקס החתונה וארוחת חגיגה</span><span data-lang="ru">Свадебная церемония и ужин</span></h3>
             <p>
               <span data-lang="en">The wedding ceremony, and then a dinner party in Tbilisi.</span>
               <span data-lang="he">הטקס הרשמי ואחריו ארוחת חגיגה בטביליסי.</span>
+              <span data-lang="ru">Свадебная церемония, а потом праздничный ужин в Тбилиси.</span>
             </p>
           </div>
         </li>
@@ -148,20 +159,21 @@
     <!-- ============ FLIGHTS & TRAVEL ============ -->
     <section class="section section--tinted" id="travel" aria-labelledby="travel-title">
       <header class="section__head">
-        <p class="eyebrow"><span data-lang="en">Getting there</span><span data-lang="he">איך מגיעים</span></p>
-        <h2 id="travel-title"><span data-lang="en">Flights</span><span data-lang="he">טיסות ונסיעה</span></h2>
+        <p class="eyebrow"><span data-lang="en">Getting there</span><span data-lang="he">איך מגיעים</span><span data-lang="ru">Как добраться</span></p>
+        <h2 id="travel-title"><span data-lang="en">Flights</span><span data-lang="he">טיסות ונסיעה</span><span data-lang="ru">Перелёт</span></h2>
       </header>
 
       <div class="card card--wide reveal">
         <span class="card__icon" aria-hidden="true">✈️</span>
-        <h3><span data-lang="en">Fly to Tbilisi Airport (TBS)</span><span data-lang="he">טסים לנמל התעופה הבינלאומי של טביליסי (TBS)</span></h3>
+        <h3><span data-lang="en">Fly to Tbilisi Airport (TBS)</span><span data-lang="he">טסים לנמל התעופה הבינלאומי של טביליסי (TBS)</span><span data-lang="ru">Прилетайте в аэропорт Тбилиси (TBS)</span></h3>
         <p>
           <span data-lang="en">Direct flights from Israel to Tbilisi take about 2.5 hours.</span>
           <span data-lang="he">יש טיסות ישירות מישראל לטביליסי (כשעתיים וחצי).</span>
+          <span data-lang="ru">Прямой рейс из Израиля в Тбилиси летит около 2,5 часа.</span>
         </p>
       </div>
 
-      <h3 class="subhead"><span data-lang="en">Direct flights from Israel</span><span data-lang="he">טיסות ישירות מישראל</span></h3>
+      <h3 class="subhead"><span data-lang="en">Direct flights from Israel</span><span data-lang="he">טיסות ישירות מישראל</span><span data-lang="ru">Прямые рейсы из Израиля</span></h3>
       <ul class="airlines">
         <li class="reveal"><a href="https://www.israir.co.il" target="_blank" rel="noopener">Israir<span data-lang="he"> · ישראייר</span></a></li>
         <li class="reveal"><a href="https://www.elal.com" target="_blank" rel="noopener">El Al<span data-lang="he"> · אל על</span></a></li>
@@ -169,10 +181,10 @@
       </ul>
 
       <div class="tips reveal">
-        <h3><span data-lang="en">Good to know</span><span data-lang="he">טוב לדעת</span></h3>
+        <h3><span data-lang="en">Good to know</span><span data-lang="he">טוב לדעת</span><span data-lang="ru">Полезно знать</span></h3>
         <ul>
-          <li><span data-lang="en">The money in Georgia is the Lari (GEL).</span><span data-lang="he">המטבע המקומי הוא לארי גאורגי (GEL).</span></li>
-          <li><span data-lang="en">Bring warm clothes for the mountains and nice clothes for the wedding.</span><span data-lang="he">קחו בגדים חמים להרים ובגד חגיגי לארוחת החתונה.</span></li>
+          <li><span data-lang="en">The money in Georgia is the Lari (GEL).</span><span data-lang="he">המטבע המקומי הוא לארי גאורגי (GEL).</span><span data-lang="ru">Валюта в Грузии — лари (GEL).</span></li>
+          <li><span data-lang="en">Bring warm clothes for the mountains and nice clothes for the wedding.</span><span data-lang="he">קחו בגדים חמים להרים ובגד חגיגי לארוחת החתונה.</span><span data-lang="ru">Возьмите тёплую одежду для гор и нарядную одежду для свадьбы.</span></li>
         </ul>
       </div>
     </section>
@@ -180,20 +192,22 @@
     <!-- ============ GROUND TRANSPORTATION ============ -->
     <section class="section" id="transport" aria-labelledby="transport-title">
       <header class="section__head">
-        <p class="eyebrow"><span data-lang="en">After you land</span><span data-lang="he">אחרי הנחיתה</span></p>
-        <h2 id="transport-title"><span data-lang="en">Getting to Gudauri</span><span data-lang="he">איך מגיעים לגודאורי</span></h2>
+        <p class="eyebrow"><span data-lang="en">After you land</span><span data-lang="he">אחרי הנחיתה</span><span data-lang="ru">После прилёта</span></p>
+        <h2 id="transport-title"><span data-lang="en">Getting to Gudauri</span><span data-lang="he">איך מגיעים לגודאורי</span><span data-lang="ru">Как добраться в Гудаури</span></h2>
       </header>
 
       <div class="card card--wide reveal">
         <span class="card__icon" aria-hidden="true">🚐</span>
-        <h3><span data-lang="en">From Tbilisi to Gudauri</span><span data-lang="he">מטביליסי לגודאורי</span></h3>
+        <h3><span data-lang="en">From Tbilisi to Gudauri</span><span data-lang="he">מטביליסי לגודאורי</span><span data-lang="ru">Из Тбилиси в Гудаури</span></h3>
         <p>
           <span data-lang="en">We are planning to arrive in Gudauri on the <strong>evening of March 17</strong> or the <strong>morning of March 18</strong>, timed around everyone's arrivals.</span>
           <span data-lang="he">אנחנו מתכננים להגיע לגודאורי ב<strong>ערב ה־17 במרץ</strong> או ב<strong>בוקר ה־18 במרץ</strong>, לפי זמני הנחיתה של כולם.</span>
+          <span data-lang="ru">Мы планируем приехать в Гудаури <strong>вечером 17 марта</strong> или <strong>утром 18 марта</strong>, в зависимости от того, когда все прилетят.</span>
         </p>
         <p class="note">
           <span data-lang="en">💌 After you book your flight, please send us the details so we can plan the rides.</span>
           <span data-lang="he">💌 אחרי שהזמנתם, שלחו לנו את פרטי הטיסה כדי שנוכל לתכנן את ההסעות.</span>
+          <span data-lang="ru">💌 Когда купите билеты, пришлите нам данные рейса, чтобы мы могли организовать трансфер.</span>
         </p>
       </div>
     </section>
@@ -201,11 +215,12 @@
     <!-- ============ PHOTO GALLERY ============ -->
     <section class="section section--tinted" id="gallery" aria-labelledby="gallery-title">
       <header class="section__head">
-        <p class="eyebrow"><span data-lang="en">Moments</span><span data-lang="he">רגעים</span></p>
-        <h2 id="gallery-title"><span data-lang="en">Gallery</span><span data-lang="he">גלריה</span></h2>
+        <p class="eyebrow"><span data-lang="en">Moments</span><span data-lang="he">רגעים</span><span data-lang="ru">Моменты</span></p>
+        <h2 id="gallery-title"><span data-lang="en">Gallery</span><span data-lang="he">גלריה</span><span data-lang="ru">Галерея</span></h2>
         <p class="section__lead">
           <span data-lang="en">We would love to have you there with us!</span>
           <span data-lang="he">נשמח להיות שם איתכם!</span>
+          <span data-lang="ru">Будем рады видеть вас с нами!</span>
         </p>
       </header>
 
@@ -217,18 +232,19 @@
 
     <!-- ============ CLOSING ============ -->
     <section class="closing" aria-labelledby="closing-title">
-      <h2 id="closing-title"><span data-lang="en">We can't wait to celebrate with you</span><span data-lang="he">מחכים לחגוג איתכם</span></h2>
+      <h2 id="closing-title"><span data-lang="en">We can't wait to celebrate with you</span><span data-lang="he">מחכים לחגוג איתכם</span><span data-lang="ru">Ждём вас на нашем празднике</span></h2>
       <p>
         <span data-lang="en">There is no RSVP form. Just message us and tell us which parts you will join.</span>
         <span data-lang="he">אין צורך באישור הגעה באתר. פשוט דברו איתנו ותגידו לאילו חלקים אתם מצטרפים.</span>
+        <span data-lang="ru">Регистрироваться на сайте не нужно. Просто напишите нам, к каким частям поездки вы присоединитесь.</span>
       </p>
     </section>
   </main>
 
   <footer class="footer">
-    <p><span data-lang="en">With love, Diana &amp; Roni</span><span data-lang="he">באהבה, דיאנה ורוני</span> ❄️</p>
+    <p><span data-lang="en">With love, Diana &amp; Roni</span><span data-lang="he">באהבה, דיאנה ורוני</span><span data-lang="ru">С любовью, Диана и Рони</span> ❄️</p>
   </footer>
 
-  <script src="js/main.js?v=9" defer></script>
+  <script src="js/main.js?v=10" defer></script>
 </body>
 </html>
