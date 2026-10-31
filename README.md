@@ -1,71 +1,82 @@
-# Diana & Roni · Wedding Website ❄️
+# Diana & Ronnie · Wedding Website ❄️
 
-A single-page, bilingual (English / Hebrew) wedding invitation site for Georgia, March 17–24, 2027.
-It's plain HTML, CSS and JavaScript, so there's no build step. It runs as-is on GitHub Pages.
+A single-page wedding invitation site for our week in Georgia (March 17–24, 2027).
+Plain HTML, CSS and JavaScript with no build step, so it runs as-is on GitHub Pages.
+
+| Language | Branch | Live site |
+|---|---|---|
+| English | `main` | https://basildiana.github.io/diana-roni-wedding/ |
+| Hebrew (RTL) | `hebrew-version` | https://basildiana.github.io/diana-roni-wedding-he/ |
 
 ```
-index.html            ← all page text (English + Hebrew)
-css/styles.css        ← colors, fonts, layout
-js/main.js            ← language switch, countdown, gallery viewer, snow
-assets/images/        ← hero.jpg + gallery-1…8.jpg (placeholders, swap for your own)
+index.html              ← page text (the ONLY file that differs between branches, along with this README)
+css/styles.css          ← shared styles (mirrors automatically for Hebrew via dir="rtl")
+js/main.js              ← shared: countdown, mobile menu, falling snow
+assets/images/picnic.jpg  ← panoramic hero photo
+assets/images/meadow.jpg  ← sign-off highlight photo
+```
+
+## Working on both branches at once (git worktrees)
+
+Each branch can be checked out in its own folder:
+
+```bash
+# from the English folder (branch main)
+git worktree add ../diana-roni-wedding-he hebrew-version
+```
+
+- `diana-roni-wedding/` → `main` (English)
+- `diana-roni-wedding-he/` → `hebrew-version` (Hebrew)
+
+**Keep shared files identical.** After changing `css/`, `js/` or `assets/` on `main`, commit, then copy them into the Hebrew branch:
+
+```bash
+cd ../diana-roni-wedding-he
+git checkout main -- css js assets
+git commit -m "Sync shared files from main"
 ```
 
 ## Preview locally
 
-Double-click `index.html`, or run a tiny local server from this folder:
+Run this in either folder, then open http://localhost:8000:
 
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+python3 -m http.server 8000
 ```
 
-## Publish to GitHub Pages
+## Deploying to GitHub Pages
 
-1. **Create a repository** at <https://github.com/new>, e.g. `wedding`. Make it **Public**, since Pages on free accounts needs a public repo.
-2. **Upload the files.** Pick one of these:
-   - **In the browser:** on the new repo page click *uploading an existing file*, drag in **everything inside** this folder (`index.html`, `css/`, `js/`, `assets/`, `README.md`), then click *Commit changes*.
-   - **With git:**
-     ```bash
-     git init
-     git add .
-     git commit -m "Wedding website"
-     git branch -M main
-     git remote add origin https://github.com/YOUR-USERNAME/wedding.git
-     git push -u origin main
-     ```
-3. **Turn on Pages:** in the repo go to **Settings → Pages**. Under *Build and deployment* choose **Deploy from a branch**, select branch **main** and folder **/ (root)**, then click **Save**.
-4. **Wait a minute or two.** Your site will be live at
-   `https://YOUR-USERNAME.github.io/wedding/`. Refresh the Pages settings screen to see the link.
+GitHub Pages serves **one branch per repository**, so each language gets its own Pages site.
 
-Every later commit to `main` republishes the site automatically.
+### English: branch `main`
 
-> Tip: if you name the repo `YOUR-USERNAME.github.io`, the site lives at `https://YOUR-USERNAME.github.io/` with no sub-path.
+1. Push the branch: `git push origin main`
+2. In the repo **diana-roni-wedding** go to **Settings → Pages → Build and deployment**.
+3. Choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then click **Save**.
+4. After a minute or two the site is live at `https://basildiana.github.io/diana-roni-wedding/`.
 
-## Make it yours
+### Hebrew: branch `hebrew-version`
 
-### Photos
-Replace the files in `assets/images/` and **keep the same file names**:
+The branch lives in the main repo, and is also pushed to a second repo, **diana-roni-wedding-he**, which serves it on Pages.
 
-| File | Where it appears | Suggested size |
-|---|---|---|
-| `hero.jpg` | Arched photo at the top | ~1600px long side, portrait or square looks best |
-| `gallery-1.jpg` … `gallery-8.jpg` | Gallery grid | ~1600px long side |
+1. One-time setup: create the second repo and add it as a remote:
+   ```bash
+   gh repo create diana-roni-wedding-he --public
+   git remote add he-site https://github.com/basildiana/diana-roni-wedding-he.git
+   ```
+2. Push the branch to both repos:
+   ```bash
+   git push origin hebrew-version
+   git push he-site hebrew-version
+   ```
+3. In the repo **diana-roni-wedding-he** go to **Settings → Pages**, choose **Deploy from a branch**, branch **hebrew-version**, folder **/ (root)**, then click **Save**.
+4. The site is live at `https://basildiana.github.io/diana-roni-wedding-he/`.
 
-- Look for `📸 SWAP ME` comments in `index.html`.
-- **Add a photo:** put the file in `assets/images/`, then copy one `<li>…</li>` line inside `<ul class="gallery">` and change the `src`, `alt` and `data-caption`. Add `class="gallery__tall"` to the `<li>` for portrait photos so they span two rows. You can add a Hebrew caption with `data-caption-he="..."`.
-- **Remove a photo:** delete its `<li>` line.
-- Keep each photo under ~500 KB so it loads quickly on phones. <https://squoosh.app> is a free way to shrink them.
-- File names are case-sensitive on GitHub Pages: `Photo.JPG` ≠ `photo.jpg`.
+Every later push republishes automatically. The **EN / עב** button in each site's menu links to the other one. If the URLs change, update that link in both `index.html` files.
 
-### Text
-All text lives in `index.html`. Each sentence appears **twice**, once inside `data-lang="en"` and once inside `data-lang="he"`. Edit both. Look for `✏️` comments for spots you'll probably want to tweak, like the Hebrew ski-trip title.
+## Making changes
 
-The language button (EN / עב) switches between them. Hebrew is shown automatically to visitors whose phone is set to Hebrew, and the choice is remembered.
-
-### Countdown
-Change `WEDDING_DATE` at the top of `js/main.js`. The countdown hides itself after the date passes.
-
-### Colors & fonts
-Edit the variables at the top of `css/styles.css` (`--slate`, `--sky`, `--ice`, …).
-
-### Letting guests share photos
-GitHub Pages is static and can't accept uploads. Create a shared album (Google Photos, iCloud, etc.), then find the commented-out **"Add your photos"** button at the end of the gallery section in `index.html`, paste your album link in, and remove the `<!--` / `-->` around it.
+- **Photos:** replace `assets/images/picnic.jpg` (shown wide across the top) or `meadow.jpg` (near the end), keeping the same file names. If the crop cuts you off, tweak `object-position` on the `<img>` in `index.html`. Look for `📸 SWAP ME` comments. Keep photos under ~600 KB; <https://squoosh.app> shrinks them for free.
+- **Text:** edit `index.html` on each branch. English is on `main`, Hebrew on `hebrew-version`.
+- **Countdown date:** `WEDDING_DATE` at the top of `js/main.js`, which is a shared file.
+- **Colors & fonts:** variables at the top of `css/styles.css`, which is a shared file. Pine accents are `--pine` and `--pine-deep`.
